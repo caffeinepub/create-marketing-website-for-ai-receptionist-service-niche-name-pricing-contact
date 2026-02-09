@@ -1,23 +1,32 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "CallCraftAI app deployment/publishing on Caffeine; user is trying to get the free domain URL to load the live app instead of the placeholder/draft.",
+  "summary": "Restarting project build/deployment from scratch due to deployment URL not updating as expected.",
   "architectural_notes": [],
   "known_issues": [
-    "Free domain (callcraftai.caffeine.xyz) shows the default Caffeine placeholder / routes to a draft URL when only a draft deploy exists or the draft has expired (domain not linked to an active published build)."
+    "Deployment still shows the same URL (https://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/) when expecting a change; user requested to start over."
   ],
   "isFixRequest": true,
-  "existing_features": [],
-  "new_feature_requests": [
+  "existing_features": [
     {
-      "id": "AR-1",
-      "summary": "Publish the app to the free Caffeine domain (callcraftai.caffeine.xyz) so it loads the live site instead of the placeholder/draft URL.",
-      "reqIds": [],
-      "status": "in_progress"
+      "id": "feature-republish-the-current-callcraftai-frontend-so-that-the-intended-production-url-is-the-free-caffeine-domain-callcraftai-caffeine-xyz-instead-of-continuing-to-show-the-draft-temporary-url-https-create-marketing-website-for-ai-receptionist-servi-ijk-caffeine-xyz",
+      "title": "Republish the current CallCraftAI frontend so that the intended production URL is the free Caffeine domain (callcraftai.caffeine.xyz), instead of continuing to show the draft/temporary URL https://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-lightweight-in-app-verification-indicator-e-g-a-small-unobtrusive-line-in-the-footer-that-displays-the-current-hostname-window-location-hostname-so-the-user-can-confirm-which-domain-is-serving-the-live-build",
+      "title": "Add a lightweight in-app verification indicator (e.g., a small, unobtrusive line in the footer) that displays the current hostname (window.location.hostname) so the user can confirm which domain is serving the live build.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "CallCraftAI",
+  "new_feature_requests": [],
+  "projectName": "Start over by republishing the app and ensuring the correct production URL is used",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

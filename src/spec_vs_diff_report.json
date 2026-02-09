@@ -1,20 +1,61 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T21:14:20.964Z",
-  "summary": "The diff only updates project_state.json with tracking metadata about publishing to the free Caffeine subdomain; it does not include any actual deployment/publishing configuration or code changes needed to make callcraftai.caffeine.xyz serve the live app.",
+  "generatedAt": "2026-02-09T21:32:03.125Z",
+  "summary": "REQ-2 appears implemented via a hostname state and (per summary) a footer indicator. REQ-1 (republishing / ensuring callcraftai.caffeine.xyz serves the SPA) cannot be confirmed from code diffs alone; changes add redirect/canonical hints but do not prove deployment/republish occurred. Several additional unrequested marketing/SEO/styling changes were introduced.",
   "missing_requirements": [
     {
-      "requirement": "Publish CallCraftAI to the free Caffeine domain so the subdomain loads the live app instead of the placeholder/draft.",
-      "reason": "No implementation/configuration changes related to building, deploying, or linking a published build to the free Caffeine subdomain are present; only project state metadata was modified.",
+      "id": "REQ-1",
+      "requirement": "Republish the current CallCraftAI frontend so the intended production URL is callcraftai.caffeine.xyz (not the draft/temporary caffeine.xyz URL) and it reliably serves the React SPA.",
+      "reason": "The diff shows client-side redirect logic and a canonical link, but there is no evidence in the provided file changes that the app was actually republished or that the Caffeine hosting configuration now serves the SPA at callcraftai.caffeine.xyz (acceptance criteria are deployment/hosting outcomes, not just code changes).",
       "evidence": [
-        "project_state.json"
+        "frontend/src/App.tsx",
+        "frontend/index.html"
       ]
     }
   ],
-  "hallucinated_features": [],
-  "confidence": 0.62,
+  "hallucinated_features": [
+    {
+      "description": "URL hash cleanup that strips `caffeineAdminToken` fragments on load.",
+      "reason": "Not requested by REQ-1/REQ-2; introduces extra behavior beyond the minimal domain indicator/URL correction request.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Cache-control meta tags (no-store/no-cache) added to index.html.",
+      "reason": "Not requested; SEO/caching behavior changes are outside the specified minimal scope.",
+      "evidence": [
+        "frontend/index.html"
+      ]
+    },
+    {
+      "description": "Updated page title and meta description for marketing/SEO copy.",
+      "reason": "Not requested by the BuildRequest; changes content/SEO beyond URL correction and hostname indicator.",
+      "evidence": [
+        "frontend/index.html"
+      ]
+    },
+    {
+      "description": "Custom OKLCH color system and typography styling overhaul.",
+      "reason": "Not requested; significant design/styling work beyond minimal changes required.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "description": "Creation/modification of `frontend/src/hooks/useQueries.ts` as an empty placeholder.",
+      "reason": "Not requested; adding/changing hook files is outside the stated requirements (and unrelated to domain indicator).",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "confidence": 0.72,
   "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
     "project_state.json"
   ]
 }

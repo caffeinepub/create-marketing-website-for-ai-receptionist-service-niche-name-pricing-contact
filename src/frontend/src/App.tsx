@@ -1,11 +1,29 @@
 import { useState, useEffect } from 'react';
-import { Phone, Mail, Clock, Calendar, CheckCircle2, Zap, Shield, TrendingUp, ChevronDown } from 'lucide-react';
+import { Phone, Mail, Clock, Calendar, CheckCircle2, Zap, Shield, TrendingUp, ChevronDown, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentHostname, setCurrentHostname] = useState('');
+
+  // Domain enforcement: redirect from draft URL to production domain
+  useEffect(() => {
+    const hostname = window.location.hostname;
+    const draftHostname = 'create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz';
+    const productionHostname = 'callcraftai.caffeine.xyz';
+
+    // Only redirect if we're on the draft hostname (and not on localhost for development)
+    if (hostname === draftHostname) {
+      const newUrl = `https://${productionHostname}${window.location.pathname}${window.location.search}`;
+      window.location.replace(newUrl);
+      return;
+    }
+
+    // Set current hostname for display
+    setCurrentHostname(hostname);
+  }, []);
 
   // Strip any admin/editor token fragments from URL on load
   useEffect(() => {
@@ -23,7 +41,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
@@ -89,7 +107,7 @@ function App() {
         )}
       </header>
 
-      <main>
+      <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden border-b">
           <div className="container py-16 md:py-24 lg:py-32">
@@ -401,15 +419,15 @@ function App() {
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>1 service location</span>
+                    <span>Email notifications</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Email notifications</span>
+                    <span>Basic reporting</span>
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" asChild>
+                  <Button className="w-full" size="lg" asChild>
                     <a href="tel:9295019225">Get Started</a>
                   </Button>
                 </CardFooter>
@@ -436,23 +454,15 @@ function App() {
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>24/7 call answering</span>
+                    <span>Everything in Starter</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Appointment booking</span>
+                    <span>SMS notifications</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Up to 3 service locations</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>SMS & email notifications</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>CRM integration</span>
+                    <span>Advanced reporting</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -460,7 +470,7 @@ function App() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" asChild>
+                  <Button className="w-full" size="lg" asChild>
                     <a href="tel:9295019225">Get Started</a>
                   </Button>
                 </CardFooter>
@@ -469,7 +479,7 @@ function App() {
               <Card>
                 <CardHeader>
                   <CardTitle>Enterprise</CardTitle>
-                  <CardDescription>For established companies</CardDescription>
+                  <CardDescription>For large operations</CardDescription>
                   <div className="mt-4">
                     <span className="text-4xl font-bold">$999</span>
                     <span className="text-muted-foreground">/month</span>
@@ -482,35 +492,23 @@ function App() {
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>24/7 call answering</span>
+                    <span>Everything in Professional</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Appointment booking</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Unlimited locations</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>SMS & email notifications</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Full CRM integration</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Dedicated account manager</span>
+                    <span>Multiple locations</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span>Custom integrations</span>
                   </div>
+                  <div className="flex gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Dedicated account manager</span>
+                  </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" asChild>
+                  <Button className="w-full" size="lg" asChild>
                     <a href="tel:9295019225">Get Started</a>
                   </Button>
                 </CardFooter>
@@ -518,7 +516,7 @@ function App() {
             </div>
 
             <div className="text-center">
-              <p className="text-muted-foreground">
+              <p className="text-sm text-muted-foreground">
                 All plans include a 14-day free trial. No credit card required.
               </p>
             </div>
@@ -539,49 +537,49 @@ function App() {
                 <AccordionItem value="item-1">
                   <AccordionTrigger>How quickly can I get started?</AccordionTrigger>
                   <AccordionContent>
-                    Most contractors are up and running within 48 hours. We'll schedule a 30-minute onboarding call to learn about your business, train your AI receptionist, and get you live. You can start your free trial immediately after our call.
+                    Most contractors are up and running within 48 hours. We'll schedule a 30-minute onboarding call to learn about your business, train your AI receptionist, and get you live. You can start taking calls the same week.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-2">
                   <AccordionTrigger>Does it really sound like a human?</AccordionTrigger>
                   <AccordionContent>
-                    Yes! Our AI uses advanced natural language processing to have natural, conversational interactions. It understands context, handles interruptions, and responds appropriately to complex questions. Most callers don't realize they're speaking with AI.
+                    Yes! Our AI uses advanced natural language processing to have natural, human-like conversations. It understands context, handles interruptions, and responds appropriately to customer questions. Most callers don't realize they're speaking with AI.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-3">
-                  <AccordionTrigger>What happens to emergency calls?</AccordionTrigger>
+                  <AccordionTrigger>What happens with emergency calls?</AccordionTrigger>
                   <AccordionContent>
-                    CallCraft AI is trained to identify emergency situations (burst pipes, no heat in winter, electrical hazards, etc.) and can route them according to your preferences - whether that's taking detailed information for immediate callback, transferring to your emergency line, or booking priority appointments.
+                    CallCraft AI is trained to identify emergency situations (burst pipes, no heat, electrical hazards, etc.) and can route them according to your preferences - whether that's taking detailed information for immediate callback, transferring to your emergency line, or booking an urgent appointment slot.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-4">
-                  <AccordionTrigger>Can it integrate with my existing calendar?</AccordionTrigger>
+                  <AccordionTrigger>Can it book appointments into my calendar?</AccordionTrigger>
                   <AccordionContent>
-                    Yes! CallCraft AI integrates with popular calendar systems including Google Calendar, Outlook, and most field service management software. It checks your availability in real-time and books appointments directly into your calendar.
+                    Absolutely. During setup, we'll integrate with your calendar system and configure your availability, service areas, and appointment types. The AI will book appointments directly based on your real-time availability, eliminating phone tag.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-5">
-                  <AccordionTrigger>What if the AI can't answer a question?</AccordionTrigger>
+                  <AccordionTrigger>What if the AI doesn't know how to answer a question?</AccordionTrigger>
                   <AccordionContent>
-                    If the AI encounters a question it can't confidently answer, it will collect the caller's information and let them know you'll call back shortly. You'll receive an immediate notification with the caller's details and their question.
+                    If the AI encounters a question it's not trained to handle, it will politely collect the caller's information and let them know you'll call back with an answer. You'll receive an immediate notification with the details. We also continuously improve the AI based on these interactions.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-6">
                   <AccordionTrigger>Is there a contract or can I cancel anytime?</AccordionTrigger>
                   <AccordionContent>
-                    No contracts required! All plans are month-to-month and you can cancel anytime. We're confident you'll see the value, but we don't believe in locking you into long-term commitments.
+                    No contracts required. All plans are month-to-month and you can cancel anytime with no penalties or fees. We're confident you'll see the value in never missing another call.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-7">
-                  <AccordionTrigger>How do I know if someone called?</AccordionTrigger>
+                  <AccordionTrigger>How do I know if a call was answered?</AccordionTrigger>
                   <AccordionContent>
-                    You'll receive instant notifications via email and SMS (on Professional and Enterprise plans) for every call. You'll get a summary of the conversation, caller information, and any appointments booked. You can also access detailed call logs and recordings in your dashboard.
+                    You'll receive instant notifications (email and/or SMS) for every call, including a summary of the conversation, caller information, and any appointments booked. You can also access detailed call logs and recordings in your dashboard.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -596,25 +594,25 @@ function App() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="border-b bg-primary text-primary-foreground">
+        {/* Final CTA */}
+        <section className="border-b bg-primary/5">
           <div className="container py-16 md:py-24">
             <div className="max-w-3xl mx-auto text-center space-y-8">
               <h2 className="text-3xl md:text-4xl font-bold">
                 Ready to Stop Missing Calls?
               </h2>
-              <p className="text-lg opacity-90">
-                Join hundreds of contractors who never miss an opportunity. Start your free 14-day trial today.
+              <p className="text-lg text-muted-foreground">
+                Join hundreds of contractors who never miss an opportunity. Get started with a 14-day free trial.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
+                <Button size="lg" asChild className="text-lg h-14 px-8">
                   <a href="tel:9295019225">
                     <Phone className="mr-2 h-5 w-5" />
                     Call (929) 501-9225
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <a href="mailto:callcraftaai@gmail.com">
+                <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
+                  <a href="mailto:hello@callcraftai.com">
                     <Mail className="mr-2 h-5 w-5" />
                     Email Us
                   </a>
@@ -627,54 +625,31 @@ function App() {
 
       {/* Footer */}
       <footer className="border-t bg-muted/30">
-        <div className="container py-12">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div className="space-y-4">
-              <img 
-                src="/assets/generated/logo-wordmark-callcraftai.dim_800x240.png" 
-                alt="CallCraft AI" 
-                className="h-8 w-auto"
-              />
-              <p className="text-sm text-muted-foreground">
-                24/7 AI Receptionist for Home Service Contractors
-              </p>
+        <div className="container py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} CallCraft AI. All rights reserved.
+            </div>
+            
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>Built with</span>
+              <Heart className="h-4 w-4 text-primary fill-primary" />
+              <span>using</span>
+              <a 
+                href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(currentHostname || 'callcraftai')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium hover:text-primary transition-colors"
+              >
+                caffeine.ai
+              </a>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="font-semibold">Contact</h3>
-              <div className="space-y-2 text-sm">
-                <a href="tel:9295019225" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Phone className="h-4 w-4" />
-                  (929) 501-9225
-                </a>
-                <a href="mailto:callcraftaai@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Mail className="h-4 w-4" />
-                  callcraftaai@gmail.com
-                </a>
+            {currentHostname && (
+              <div className="text-xs text-muted-foreground/70 font-mono">
+                Domain: {currentHostname}
               </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold">Quick Links</h3>
-              <div className="space-y-2 text-sm">
-                <button onClick={() => scrollToSection('how-it-works')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
-                  How It Works
-                </button>
-                <button onClick={() => scrollToSection('features')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
-                  Features
-                </button>
-                <button onClick={() => scrollToSection('pricing')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
-                  Pricing
-                </button>
-                <button onClick={() => scrollToSection('faq')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
-                  FAQ
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>© 2026. Built with love using <a href="https://caffeine.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">caffeine.ai</a>.</p>
+            )}
           </div>
         </div>
       </footer>

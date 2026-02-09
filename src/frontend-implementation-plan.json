@@ -1,6 +1,44 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Publish CallCraftAI to the free Caffeine domain (frontend-only)",
-  "requirements": []
+  "title": "CallCraftAI: production domain hardening + in-app hostname indicator",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Ensure the SPA consistently serves from the intended production domain (callcraftai.caffeine.xyz) and is not dependent on the draft/temporary Caffeine URL.",
+      "acceptanceCriteria": [
+        "Visiting callcraftai.caffeine.xyz loads the CallCraftAI marketing site (the React SPA), not a Caffeine placeholder page.",
+        "A user can share callcraftai.caffeine.xyz and recipients consistently see the same live site.",
+        "The app is no longer dependent on (or only accessible from) the draft/temporary URL https://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a lightweight production-domain enforcement guard that (1) detects when the app is loaded from the known draft hostname create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz and (2) performs a client-side redirect to callcraftai.caffeine.xyz while preserving path/query as appropriate. Ensure this does not interfere with localhost/dev environments and remains compatible with the existing URL hash cleanup logic."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add/adjust HTML head metadata to reflect the intended canonical production URL (callcraftai.caffeine.xyz) to reduce confusion when sharing/previewing, without introducing new pages or routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Display an unobtrusive footer indicator showing the current hostname for quick in-app verification.",
+      "acceptanceCriteria": [
+        "The footer shows a label like \"Domain: <current-hostname>\" using English text.",
+        "The label updates correctly when the site is loaded from different hostnames (draft URL vs free domain).",
+        "The indicator does not break layout on mobile and desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a small footer line that renders the current runtime hostname (from window.location.hostname) as English text (e.g., \"Domain: …\") and style it to be unobtrusive and responsive. Use existing Tailwind utilities and compose existing shadcn/ui components where helpful (do not edit files under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
 }

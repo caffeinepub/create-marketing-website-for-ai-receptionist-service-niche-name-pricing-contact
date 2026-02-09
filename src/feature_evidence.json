@@ -1,4 +1,42 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-republish-the-current-callcraftai-frontend-so-that-the-intended-production-url-is-the-free-caffeine-domain-callcraftai-caffeine-xyz-instead-of-continuing-to-show-the-draft-temporary-url-https-create-marketing-website-for-ai-receptionist-servi-ijk-caffeine-xyz",
+      "featureTitle": "Republish the current CallCraftAI frontend so that the intended production URL is the free Caffeine domain (callcraftai.caffeine.xyz), instead of continuing to show the draft/temporary URL https://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-lightweight-in-app-verification-indicator-e-g-a-small-unobtrusive-line-in-the-footer-that-displays-the-current-hostname-window-location-hostname-so-the-user-can-confirm-which-domain-is-serving-the-live-build",
+      "featureTitle": "Add a lightweight in-app verification indicator (e.g., a small, unobtrusive line in the footer) that displays the current hostname (window.location.hostname) so the user can confirm which domain is serving the live build.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

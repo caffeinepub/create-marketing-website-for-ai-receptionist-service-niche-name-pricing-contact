@@ -1,15 +1,15 @@
 {
   "backend/main.mo": "Empty Motoko actor with no backend logic.",
-  "feature_evidence.json": "Feature evidence report stub with no features listed.",
-  "frontend-file-summaries.txt": "Lists high-level descriptions of main frontend files including App.tsx, styling, and placeholders.",
-  "frontend/index.css": "Tailwind-based OKLCH variable theme with light/dark mode tokens and global styles.",
-  "frontend/index.html": "Base HTML shell with cache‑control headers and root mount point for the React app.",
-  "frontend/src/App.tsx": "Main SPA marketing site with sections, navigation, mobile menu, and URL token cleanup.",
-  "frontend/src/hooks/useActor.ts": "React hook that instantiates and refreshes a backend actor based on Internet Identity state.",
-  "frontend/src/hooks/useInternetIdentity.ts": "Full Internet Identity provider and hook managing login, stored identities, and AuthClient lifecycle.",
+  "feature_evidence.json": "Lists feature evidence mapping features to affected frontend files and components.",
+  "frontend-file-summaries.txt": "Contains prewritten summaries for key frontend files including App.tsx and index.html.",
+  "frontend/index.css": "Tailwind base layer defining OKLCH color variables and dark mode tokens.",
+  "frontend/index.html": "HTML entry point with cache-control headers, canonical URL, and root mount for the React app.",
+  "frontend/src/App.tsx": "Main React app with domain redirect, URL cleanup, navigation, marketing sections, and hostname footer indicator.",
+  "frontend/src/hooks/useActor.ts": "React hook creating an authenticated or anonymous backend actor and refreshing dependent queries on identity change.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity context, login handling, identity persistence, and related state helpers.",
   "frontend/src/hooks/useQueries.ts": "Empty placeholder since no backend queries exist.",
-  "frontend/src/index.css": "Tailwind OKLCH warm color palette and typography utilities for the marketing site.",
-  "frontend/src/main.tsx": "React entry point wiring QueryClient, InternetIdentityProvider, and App.",
-  "frontend/tailwind.config.js": "Tailwind config extending OKLCH color tokens, typography, animations, and container settings.",
-  "project_state.json": "Project metadata showing deployment issue with Caffeine free domain and active feature request to publish."
+  "frontend/src/index.css": "Tailwind OKLCH warm color palette with typography tweaks and utility layers.",
+  "frontend/src/main.tsx": "React entry point mounting App with InternetIdentityProvider and React Query client.",
+  "frontend/tailwind.config.js": "Tailwind config enabling dark mode, custom OKLCH colors, typography, container queries, and animations.",
+  "project_state.json": "Tracks project reset state, noting deployment URL issues and two existing features for republishing and adding a hostname indicator."
 }

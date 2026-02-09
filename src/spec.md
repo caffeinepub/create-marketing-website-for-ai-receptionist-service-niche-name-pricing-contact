@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Publish the CallCraftAI app to the free Caffeine subdomain so it is accessible at the intended `.caffeine.xyz` URL.
+**Goal:** Republish the existing CallCraftAI marketing frontend so it reliably serves from the intended production domain (callcraftai.caffeine.xyz) and add a simple on-page way to confirm which hostname is serving the build.
 
 **Planned changes:**
-- Configure the project’s deployment/publish settings for Caffeine so the app can be published to the free Caffeine domain.
-- Verify the published app is reachable on the Caffeine subdomain and no longer shows the “Publish or restore your Caffeine app” placeholder page.
+- Republish/reconfigure deployment so callcraftai.caffeine.xyz serves the current React SPA (not a placeholder) and is not dependent on the draft/temporary URL.
+- Add a lightweight footer indicator that displays `window.location.hostname` (e.g., “Domain: <current-hostname>”) and ensure it remains unobtrusive on mobile and desktop.
 
-**User-visible outcome:** Visiting the CallCraftAI Caffeine URL loads the actual app instead of the default Caffeine placeholder screen.
+**User-visible outcome:** Visiting and sharing callcraftai.caffeine.xyz consistently loads the live CallCraftAI site, and the footer shows the current domain to verify which URL is serving the page.

@@ -1,18 +1,66 @@
 {
   "kind": "build_request",
-  "title": "Publish CallCraftAI to the free Caffeine domain",
-  "priority": "normal",
-  "requirements": [],
+  "title": "Start over by republishing the app and ensuring the correct production URL is used",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Republish the current CallCraftAI frontend so that the intended production URL is the free Caffeine domain (callcraftai.caffeine.xyz), instead of continuing to show the draft/temporary URL https://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/.",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I still see the same url \nhttps://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/\n\nCan we start over"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visiting callcraftai.caffeine.xyz loads the CallCraftAI marketing site (the React SPA), not a Caffeine placeholder page.",
+        "A user can share callcraftai.caffeine.xyz and recipients consistently see the same live site.",
+        "The app is no longer dependent on (or only accessible from) the draft/temporary URL https://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add a lightweight in-app verification indicator (e.g., a small, unobtrusive line in the footer) that displays the current hostname (window.location.hostname) so the user can confirm which domain is serving the live build.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I still see the same url \nhttps://create-marketing-website-for-ai-receptionist-servi-ijk.caffeine.xyz/\n\nCan we start over"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The footer shows a label like \"Domain: <current-hostname>\" using English text.",
+        "The label updates correctly when the site is loaded from different hostnames (draft URL vs free domain).",
+        "The indicator does not break layout on mobile and desktop."
+      ]
+    }
+  ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui or any other immutable paths listed in SYSTEM_CONTEXT.",
-    "Keep the backend as a single Motoko actor; do not introduce additional backend services."
+    "Do not edit files under frontend/src/components/ui (Shadcn components are read-only and must be composed).",
+    "Do not edit immutable hook/entry files: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx."
   ],
   "nonGoals": [
-    "Buying or configuring a custom domain (the request is to publish to the free Caffeine subdomain).",
-    "Adding new product features or changing marketing-site content unrelated to publishing."
+    "Building new product features beyond republishing/URL correction and the minimal domain indicator.",
+    "Adding third-party auth providers (only Internet Identity is supported).",
+    "Adding a database or external hosting/CDN configuration."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }
