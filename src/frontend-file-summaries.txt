@@ -1,6 +1,6 @@
 {
-  "frontend/src/App.tsx": "Complete single-page marketing website for CallCraft AI with hero, features, pricing, FAQ, contact CTA section displaying phone (929) 501-9225 and email callcraftaai@gmail.com as clickable links, and footer with contact information including both phone and email.",
+  "frontend/src/App.tsx": "Complete single-page marketing website for CallCraft AI with URL hash cleanup on load to strip admin/editor tokens, hero section, features, pricing, FAQ, contact CTA, and footer with all existing content preserved.",
   "frontend/src/index.css": "Custom OKLCH color system with warm amber/orange primary palette (avoiding blue-purple) for trustworthy B2B aesthetic, including light and dark mode tokens, typography settings with tight letter-spacing for headings, and utility classes.",
-  "frontend/index.html": "HTML document head with updated title and meta description reflecting CallCraft AI brand and home service contractor niche.",
+  "frontend/index.html": "HTML document head with cache-control meta tags to ensure fresh publishes are picked up reliably, plus updated title and meta description for CallCraft AI.",
   "frontend/src/hooks/useQueries.ts": "Empty placeholder file since backend has no methods; all website content is static frontend marketing material."
 }

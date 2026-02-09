@@ -1,15 +1,15 @@
 {
-  "backend/main.mo": "Defines an empty Motoko actor with no backend logic.",
-  "feature_evidence.json": "Contains feature evidence for adding a clickable contact email to the site, linking changes to frontend/src/App.tsx.",
-  "frontend-file-summaries.txt": "Lists short summaries of key frontend files including App.tsx, index.css, index.html, and useQueries.ts.",
-  "frontend/index.css": "Tailwind base definitions and OKLCH color variables for theming in light and dark modes.",
-  "frontend/index.html": "HTML entry point setting the page title, meta description, and root mount element.",
-  "frontend/src/App.tsx": "Main React SPA implementing navigation, hero, features, pricing, FAQ, and contact sections with phone/email links.",
-  "frontend/src/hooks/useActor.ts": "React hook creating and managing a backend actor instance tied to Internet Identity.",
-  "frontend/src/hooks/useInternetIdentity.ts": "React context and provider handling Internet Identity authentication, login, logout, and identity persistence.",
-  "frontend/src/hooks/useQueries.ts": "Empty placeholder since the backend exposes no callable methods.",
-  "frontend/src/index.css": "Tailwind base styles with a warm amber/gray OKLCH palette and typography tweaks.",
-  "frontend/src/main.tsx": "Bootstraps the React app with QueryClientProvider and InternetIdentityProvider.",
-  "frontend/tailwind.config.js": "Tailwind configuration enabling OKLCH color tokens, extended utilities, and plugins.",
-  "project_state.json": "Defines the project’s state, including versioning, high-level service summary, architectural notes, and a list of existing features for building an AI receptionist service website. Contains structured metadata for planning and tracking feature requirements."
+  "backend/main.mo": "Empty Motoko actor with no backend logic.",
+  "feature_evidence.json": "Feature evidence report stub with no features listed.",
+  "frontend-file-summaries.txt": "Lists high-level descriptions of main frontend files including App.tsx, styling, and placeholders.",
+  "frontend/index.css": "Tailwind-based OKLCH variable theme with light/dark mode tokens and global styles.",
+  "frontend/index.html": "Base HTML shell with cache‑control headers and root mount point for the React app.",
+  "frontend/src/App.tsx": "Main SPA marketing site with sections, navigation, mobile menu, and URL token cleanup.",
+  "frontend/src/hooks/useActor.ts": "React hook that instantiates and refreshes a backend actor based on Internet Identity state.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Full Internet Identity provider and hook managing login, stored identities, and AuthClient lifecycle.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder since no backend queries exist.",
+  "frontend/src/index.css": "Tailwind OKLCH warm color palette and typography utilities for the marketing site.",
+  "frontend/src/main.tsx": "React entry point wiring QueryClient, InternetIdentityProvider, and App.",
+  "frontend/tailwind.config.js": "Tailwind config extending OKLCH color tokens, typography, animations, and container settings.",
+  "project_state.json": "Project metadata showing deployment issue with Caffeine free domain and active feature request to publish."
 }

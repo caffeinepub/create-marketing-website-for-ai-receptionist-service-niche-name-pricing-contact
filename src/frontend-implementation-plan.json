@@ -1,24 +1,6 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add clickable contact email to Contact section and footer",
-  "requirements": [
-    {
-      "id": "REQ-8",
-      "summary": "Display the contact email callcraftaai@gmail.com in all visible contact areas (Contact section and footer) as a clickable mailto link with an English label and consistent styling.",
-      "acceptanceCriteria": [
-        "The Contact section displays the email address exactly as: callcraftaai@gmail.com",
-        "Clicking/tapping the email opens the user’s email client via a mailto:callcraftaai@gmail.com link",
-        "If the site has a footer contact area, the same email is shown there as well",
-        "User-facing label text is in English (e.g., \"Email\"), and the email link is visually consistent with existing contact links (e.g., phone)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Update the marketing site’s contact information UI to include an \"Email\" row/link displaying callcraftaai@gmail.com as a mailto:callcraftaai@gmail.com anchor anywhere contact details are presented (including the Contact section and any footer contact area), matching the existing phone link’s visual style (typography/color/hover) and keeping copy in English."
-        }
-      ]
-    }
-  ]
+  "title": "Publish CallCraftAI to the free Caffeine domain (frontend-only)",
+  "requirements": []
 }

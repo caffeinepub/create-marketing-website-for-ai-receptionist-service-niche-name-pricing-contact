@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Add the contact email callcraftaai@gmail.com to the site’s contact information as a clickable mailto link.
+**Goal:** Publish the CallCraftAI app to the free Caffeine subdomain so it is accessible at the intended `.caffeine.xyz` URL.
 
 **Planned changes:**
-- Update the Contact section to display the email address exactly as callcraftaai@gmail.com with an Email label in English.
-- Add a clickable `mailto:callcraftaai@gmail.com` link for the email, styled consistently with existing contact links (e.g., phone).
-- If contact details are shown in the footer (or other areas), include the same email there as well.
+- Configure the project’s deployment/publish settings for Caffeine so the app can be published to the free Caffeine domain.
+- Verify the published app is reachable on the Caffeine subdomain and no longer shows the “Publish or restore your Caffeine app” placeholder page.
 
-**User-visible outcome:** Visitors can see the email address callcraftaai@gmail.com in the Contact area (and footer if present) and click/tap it to open their email client via a mailto link.
+**User-visible outcome:** Visiting the CallCraftAI Caffeine URL loads the actual app instead of the default Caffeine placeholder screen.

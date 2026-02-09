@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Phone, Mail, Clock, Calendar, CheckCircle2, Zap, Shield, TrendingUp, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +6,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Strip any admin/editor token fragments from URL on load
+  useEffect(() => {
+    if (window.location.hash && window.location.hash.includes('caffeineAdminToken')) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -22,7 +29,7 @@ function App() {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <img 
-              src="/assets/generated/logo-wordmark.dim_800x240.png" 
+              src="/assets/generated/logo-wordmark-callcraftai.dim_800x240.png" 
               alt="CallCraft AI" 
               className="h-8 w-auto"
             />
@@ -402,17 +409,19 @@ function App() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" size="lg" asChild>
+                  <Button className="w-full" asChild>
                     <a href="tel:9295019225">Get Started</a>
                   </Button>
                 </CardFooter>
               </Card>
 
-              <Card className="border-primary shadow-lg">
+              <Card className="border-primary shadow-lg relative">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
+                    Most Popular
+                  </span>
+                </div>
                 <CardHeader>
-                  <div className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full mb-2">
-                    MOST POPULAR
-                  </div>
                   <CardTitle>Professional</CardTitle>
                   <CardDescription>For growing businesses</CardDescription>
                   <div className="mt-4">
@@ -439,7 +448,11 @@ function App() {
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Email & SMS notifications</span>
+                    <span>SMS & email notifications</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>CRM integration</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -447,7 +460,7 @@ function App() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" size="lg" asChild>
+                  <Button className="w-full" asChild>
                     <a href="tel:9295019225">Get Started</a>
                   </Button>
                 </CardFooter>
@@ -456,7 +469,7 @@ function App() {
               <Card>
                 <CardHeader>
                   <CardTitle>Enterprise</CardTitle>
-                  <CardDescription>For large operations</CardDescription>
+                  <CardDescription>For established companies</CardDescription>
                   <div className="mt-4">
                     <span className="text-4xl font-bold">$999</span>
                     <span className="text-muted-foreground">/month</span>
@@ -477,11 +490,15 @@ function App() {
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Unlimited service locations</span>
+                    <span>Unlimited locations</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Email & SMS notifications</span>
+                    <span>SMS & email notifications</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Full CRM integration</span>
                   </div>
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -493,46 +510,17 @@ function App() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" size="lg" asChild>
+                  <Button className="w-full" asChild>
                     <a href="tel:9295019225">Get Started</a>
                   </Button>
                 </CardFooter>
               </Card>
             </div>
 
-            <div className="max-w-3xl mx-auto">
-              <Card className="bg-muted/50">
-                <CardHeader>
-                  <CardTitle className="text-center">One-Time Setup Fee: $499</CardTitle>
-                  <CardDescription className="text-center">
-                    Includes AI training, system configuration, and testing. Get up and running in 48 hours.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <div className="mt-8 text-center">
-                <h3 className="text-xl font-semibold mb-4">Optional Add-On</h3>
-                <Card>
-                  <CardHeader>
-                    <CardTitle>AI Optimization Service</CardTitle>
-                    <CardDescription>
-                      Monthly fine-tuning based on call performance data
-                    </CardDescription>
-                    <div className="mt-4">
-                      <span className="text-3xl font-bold">$199</span>
-                      <span className="text-muted-foreground">/month</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Continuous AI improvement</li>
-                      <li>• Monthly performance reports</li>
-                      <li>• Script optimization</li>
-                      <li>• Response time improvements</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
+            <div className="text-center">
+              <p className="text-muted-foreground">
+                All plans include a 14-day free trial. No credit card required.
+              </p>
             </div>
           </div>
         </section>
@@ -540,70 +528,67 @@ function App() {
         {/* FAQ */}
         <section id="faq" className="border-b">
           <div className="container py-16 md:py-24">
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center space-y-4 mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  Frequently Asked Questions
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  Everything you need to know about CallCraft AI
-                </p>
-              </div>
+            <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                Frequently Asked Questions
+              </h2>
+            </div>
 
+            <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger>How quickly can I get started?</AccordionTrigger>
                   <AccordionContent>
-                    Most clients are live within 48 hours. After your setup call, we train your AI receptionist and have it ready to answer calls. You can start forwarding calls as soon as testing is complete.
+                    Most contractors are up and running within 48 hours. We'll schedule a 30-minute onboarding call to learn about your business, train your AI receptionist, and get you live. You can start your free trial immediately after our call.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-2">
-                  <AccordionTrigger>Does it sound like a real person?</AccordionTrigger>
+                  <AccordionTrigger>Does it really sound like a human?</AccordionTrigger>
                   <AccordionContent>
-                    Yes! Our AI uses advanced natural language processing to have human-like conversations. Customers typically can't tell they're speaking with AI. The system understands context, handles interruptions, and responds naturally to questions.
+                    Yes! Our AI uses advanced natural language processing to have natural, conversational interactions. It understands context, handles interruptions, and responds appropriately to complex questions. Most callers don't realize they're speaking with AI.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-3">
                   <AccordionTrigger>What happens to emergency calls?</AccordionTrigger>
                   <AccordionContent>
-                    The AI is trained to identify emergency situations (burst pipes, no heat, electrical hazards, etc.) and can immediately notify you via text or transfer the call based on your preferences. You never miss a high-value emergency job.
+                    CallCraft AI is trained to identify emergency situations (burst pipes, no heat in winter, electrical hazards, etc.) and can route them according to your preferences - whether that's taking detailed information for immediate callback, transferring to your emergency line, or booking priority appointments.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-4">
-                  <AccordionTrigger>Can it book appointments?</AccordionTrigger>
+                  <AccordionTrigger>Can it integrate with my existing calendar?</AccordionTrigger>
                   <AccordionContent>
-                    Absolutely. The AI integrates with your calendar and books appointments based on your availability, service area, and the type of work needed. Customers get instant confirmation, and you get a notification with all the details.
+                    Yes! CallCraft AI integrates with popular calendar systems including Google Calendar, Outlook, and most field service management software. It checks your availability in real-time and books appointments directly into your calendar.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-5">
                   <AccordionTrigger>What if the AI can't answer a question?</AccordionTrigger>
                   <AccordionContent>
-                    If the AI encounters a question it can't confidently answer, it will collect the customer's information and let them know you'll call back shortly. You'll receive an immediate notification with the customer's question and contact details.
+                    If the AI encounters a question it can't confidently answer, it will collect the caller's information and let them know you'll call back shortly. You'll receive an immediate notification with the caller's details and their question.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-6">
-                  <AccordionTrigger>Is there a contract?</AccordionTrigger>
+                  <AccordionTrigger>Is there a contract or can I cancel anytime?</AccordionTrigger>
                   <AccordionContent>
-                    No contracts required. All plans are month-to-month. If you're not satisfied, you can cancel anytime. The only commitment is the one-time setup fee to get your AI receptionist trained and configured.
+                    No contracts required! All plans are month-to-month and you can cancel anytime. We're confident you'll see the value, but we don't believe in locking you into long-term commitments.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-7">
-                  <AccordionTrigger>What happens if I go over my call limit?</AccordionTrigger>
+                  <AccordionTrigger>How do I know if someone called?</AccordionTrigger>
                   <AccordionContent>
-                    We'll notify you when you're approaching your plan's call limit. Additional calls are billed at $2 per call, or you can upgrade to a higher tier plan at any time to get better per-call rates.
+                    You'll receive instant notifications via email and SMS (on Professional and Enterprise plans) for every call. You'll get a summary of the conversation, caller information, and any appointments booked. You can also access detailed call logs and recordings in your dashboard.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-8">
-                  <AccordionTrigger>Can I customize what the AI says?</AccordionTrigger>
+                  <AccordionTrigger>What types of contractors is this for?</AccordionTrigger>
                   <AccordionContent>
-                    Yes! During setup, we customize the AI's responses to match your brand voice, services, pricing, and policies. You can request script changes anytime, and with the AI Optimization add-on, we continuously refine responses based on performance.
+                    CallCraft AI is specifically designed for home service contractors including plumbers, HVAC technicians, electricians, and similar trades where emergency calls and quick response times are critical to winning jobs.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -611,46 +596,29 @@ function App() {
           </div>
         </section>
 
-        {/* Contact CTA */}
-        <section className="border-b bg-primary/5">
+        {/* CTA Section */}
+        <section className="border-b bg-primary text-primary-foreground">
           <div className="container py-16 md:py-24">
             <div className="max-w-3xl mx-auto text-center space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  Ready to Stop Missing Calls?
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  Get started today and never lose another customer to voicemail. Setup takes just 48 hours.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button size="lg" asChild className="text-lg h-14 px-8">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                Ready to Stop Missing Calls?
+              </h2>
+              <p className="text-lg opacity-90">
+                Join hundreds of contractors who never miss an opportunity. Start your free 14-day trial today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
                   <a href="tel:9295019225">
                     <Phone className="mr-2 h-5 w-5" />
                     Call (929) 501-9225
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
+                <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <a href="mailto:callcraftaai@gmail.com">
                     <Mail className="mr-2 h-5 w-5" />
                     Email Us
                   </a>
                 </Button>
-              </div>
-
-              <div className="pt-8 space-y-3">
-                <p className="text-sm font-semibold text-muted-foreground">Contact Information</p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
-                  <a href="tel:9295019225" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                    <Phone className="h-4 w-4" />
-                    <span>(929) 501-9225</span>
-                  </a>
-                  <a href="mailto:callcraftaai@gmail.com" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                    <Mail className="h-4 w-4" />
-                    <span>callcraftaai@gmail.com</span>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -660,73 +628,53 @@ function App() {
       {/* Footer */}
       <footer className="border-t bg-muted/30">
         <div className="container py-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div className="space-y-4">
               <img 
-                src="/assets/generated/logo-wordmark.dim_800x240.png" 
+                src="/assets/generated/logo-wordmark-callcraftai.dim_800x240.png" 
                 alt="CallCraft AI" 
                 className="h-8 w-auto"
               />
               <p className="text-sm text-muted-foreground">
-                AI Receptionist for home service contractors. Never miss another call.
+                24/7 AI Receptionist for Home Service Contractors
               </p>
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-semibold">Quick Links</h3>
-              <nav className="flex flex-col gap-2 text-sm">
-                <button onClick={() => scrollToSection('how-it-works')} className="text-muted-foreground hover:text-primary transition-colors text-left">
-                  How It Works
-                </button>
-                <button onClick={() => scrollToSection('features')} className="text-muted-foreground hover:text-primary transition-colors text-left">
-                  Features
-                </button>
-                <button onClick={() => scrollToSection('pricing')} className="text-muted-foreground hover:text-primary transition-colors text-left">
-                  Pricing
-                </button>
-                <button onClick={() => scrollToSection('faq')} className="text-muted-foreground hover:text-primary transition-colors text-left">
-                  FAQ
-                </button>
-              </nav>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold">Services</h3>
-              <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <p>Plumbing Contractors</p>
-                <p>HVAC Contractors</p>
-                <p>Electrical Contractors</p>
-                <p>Home Service Businesses</p>
+              <h3 className="font-semibold">Contact</h3>
+              <div className="space-y-2 text-sm">
+                <a href="tel:9295019225" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Phone className="h-4 w-4" />
+                  (929) 501-9225
+                </a>
+                <a href="mailto:callcraftaai@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Mail className="h-4 w-4" />
+                  callcraftaai@gmail.com
+                </a>
               </div>
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-semibold">Contact</h3>
-              <div className="flex flex-col gap-3 text-sm">
-                <a href="tel:9295019225" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Phone className="h-4 w-4" />
-                  <span>(929) 501-9225</span>
-                </a>
-                <a href="mailto:callcraftaai@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Mail className="h-4 w-4" />
-                  <span>callcraftaai@gmail.com</span>
-                </a>
+              <h3 className="font-semibold">Quick Links</h3>
+              <div className="space-y-2 text-sm">
+                <button onClick={() => scrollToSection('how-it-works')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
+                  How It Works
+                </button>
+                <button onClick={() => scrollToSection('features')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
+                  Features
+                </button>
+                <button onClick={() => scrollToSection('pricing')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
+                  Pricing
+                </button>
+                <button onClick={() => scrollToSection('faq')} className="block text-muted-foreground hover:text-primary transition-colors text-left">
+                  FAQ
+                </button>
               </div>
             </div>
           </div>
 
           <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>
-              © 2026. Built with love using{' '}
-              <a 
-                href="https://caffeine.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                caffeine.ai
-              </a>
-            </p>
+            <p>© 2026. Built with love using <a href="https://caffeine.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">caffeine.ai</a>.</p>
           </div>
         </div>
       </footer>
