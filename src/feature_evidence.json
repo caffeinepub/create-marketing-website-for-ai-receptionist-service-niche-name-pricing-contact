@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-the-contact-email-address-callcraftaai-gmail-com-to-the-website-s-contact-information-in-the-contact-section-and-anywhere-else-contact-details-are-presented-such-as-the-footer-and-make-it-clickable-using-a-mailto-link",
+      "featureTitle": "Add the contact email address \"callcraftaai@gmail.com\" to the website’s contact information (in the Contact section and anywhere else contact details are presented, such as the footer), and make it clickable using a mailto: link.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

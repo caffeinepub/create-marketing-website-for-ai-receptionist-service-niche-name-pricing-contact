@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Plan and launch a service company offering a 24/7 AI receptionist that answers calls and books appointments for businesses.",
+  "architectural_notes": [
+    "Include contact email callcraftaai@gmail.com alongside phone number in the website contact section (mailto link)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-choose-a-single-target-niche-that-has-an-urgent-need-for-24-7-call-answering-appointment-booking-ai-receptionist-and-use-that-niche-consistently-across-the-website-copy-headlines-benefits-examples-faqs",
+      "title": "Choose a single target niche that has an urgent need for 24/7 call answering + appointment booking (AI receptionist) and use that niche consistently across the website copy (headlines, benefits, examples, FAQs).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-choose-a-business-name-for-the-ai-receptionist-service-and-apply-it-consistently-across-the-website-header-logo-area-page-title-meta-title-footer",
+      "title": "Choose a business name for the AI receptionist service and apply it consistently across the website (header/logo area, page title/meta title, footer).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-pricing-tiers-and-offer-package-descriptions-for-the-ai-receptionist-service-including-at-minimum-1-a-setup-onboarding-component-2-a-monthly-plan-structure-with-clear-differences-e-g-call-volume-locations-features-and-3-an-optional-ongoing-optimization-support-add-on-and-present-them-in-a-clear-pricing-section",
+      "title": "Create pricing tiers and offer/package descriptions for the AI receptionist service, including at minimum: (1) a setup/onboarding component, (2) a monthly plan structure with clear differences (e.g., call volume/locations/features), and (3) an optional ongoing optimization/support add-on, and present them in a clear pricing section.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-simple-mobile-responsive-business-website-for-the-ai-receptionist-service-with-the-following-sections-hero-primary-cta-social-proof-credibility-band-non-fabricated-generic-phrasing-allowed-problem-solution-how-it-works-step-by-step-features-benefits-pricing-faq-contact-section",
+      "title": "Build a simple, mobile-responsive business website for the AI receptionist service with the following sections: Hero + primary CTA, Social proof/credibility band (non-fabricated, generic phrasing allowed), Problem/solution, How it works (step-by-step), Features/benefits, Pricing, FAQ, Contact section.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-contact-information-prominently-on-the-website-including-the-phone-number-9295019225-and-provide-click-to-call-behavior-on-mobile-tel-link",
+      "title": "Add contact information prominently on the website, including the phone number 9295019225, and provide click-to-call behavior on mobile (tel: link).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-creative-coherent-visual-theme-colors-typography-spacing-component-styling-suitable-for-a-modern-b2b-service-website-and-enforce-it-consistently-across-all-sections-do-not-use-a-blue-and-purple-palette",
+      "title": "Apply a creative, coherent visual theme (colors, typography, spacing, component styling) suitable for a modern B2B service website and enforce it consistently across all sections; do not use a blue-and-purple palette.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-required-static-images-logo-and-a-simple-hero-illustration-as-frontend-static-assets-and-render-them-in-the-website-header-hero-without-routing-image-delivery-through-the-backend",
+      "title": "Generate and include required static images (logo and a simple hero illustration) as frontend static assets and render them in the website header/hero without routing image delivery through the backend.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-contact-email-address-callcraftaai-gmail-com-to-the-website-s-contact-information-in-the-contact-section-and-anywhere-else-contact-details-are-presented-such-as-the-footer-and-make-it-clickable-using-a-mailto-link",
+      "title": "Add the contact email address \"callcraftaai@gmail.com\" to the website’s contact information (in the Contact section and anywhere else contact details are presented, such as the footer), and make it clickable using a mailto: link.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Choose a target niche that urgently needs an AI receptionist service",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create pricing tiers for the AI receptionist + appointment booking service",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Design service offers/packages (setup, monthly plans, optimization)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Build a simple business website for the AI receptionist service",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Choose a name for the business",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add contact info (phone number 9295019225) to the website",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add contact email (callcraftaai@gmail.com) to the website contact section",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Create marketing website for AI receptionist service (niche, name, pricing, contact)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

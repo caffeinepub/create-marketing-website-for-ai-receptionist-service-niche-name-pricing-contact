@@ -1,0 +1,15 @@
+{
+  "backend/main.mo": "Defines an empty Motoko actor with no backend logic.",
+  "feature_evidence.json": "Contains feature evidence for adding a clickable contact email to the site, linking changes to frontend/src/App.tsx.",
+  "frontend-file-summaries.txt": "Lists short summaries of key frontend files including App.tsx, index.css, index.html, and useQueries.ts.",
+  "frontend/index.css": "Tailwind base definitions and OKLCH color variables for theming in light and dark modes.",
+  "frontend/index.html": "HTML entry point setting the page title, meta description, and root mount element.",
+  "frontend/src/App.tsx": "Main React SPA implementing navigation, hero, features, pricing, FAQ, and contact sections with phone/email links.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and managing a backend actor instance tied to Internet Identity.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React context and provider handling Internet Identity authentication, login, logout, and identity persistence.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder since the backend exposes no callable methods.",
+  "frontend/src/index.css": "Tailwind base styles with a warm amber/gray OKLCH palette and typography tweaks.",
+  "frontend/src/main.tsx": "Bootstraps the React app with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/tailwind.config.js": "Tailwind configuration enabling OKLCH color tokens, extended utilities, and plugins.",
+  "project_state.json": "Defines the project’s state, including versioning, high-level service summary, architectural notes, and a list of existing features for building an AI receptionist service website. Contains structured metadata for planning and tracking feature requirements."
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-09T08:01:57.320Z",
+  "summary": "REQ-8 appears to be implemented in the frontend by adding a clickable mailto link for callcraftaai@gmail.com in the contact area and also including the email in footer contact info. However, the actual App.tsx content showing the Contact section/footer is truncated, so verification relies partly on the provided file summary text. Several unrelated UI/branding/theme changes were also made beyond the requested static email addition.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Updated/introduced a full single-page marketing site structure and additional sections/content beyond adding an email contact link (hero, features, pricing, FAQ, etc.).",
+      "reason": "BuildRequest only asks to add a contact email to existing contact info; it does not request rebuilding or expanding the marketing page content.",
+      "evidence": [
+        "frontend/src/App.tsx (truncated)",
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "description": "Changed the site visual theme/color system and typography (custom OKLCH warm palette, light/dark tokens, heading letter-spacing).",
+      "reason": "Not requested by REQ-8; requirement is limited to adding a static email mailto link with consistent styling.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/index.css)"
+      ]
+    },
+    {
+      "description": "Updated HTML title/meta description to reflect brand/niche.",
+      "reason": "Not requested by REQ-8.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/index.html)"
+      ]
+    },
+    {
+      "description": "Added/modified an empty placeholder hook file (useQueries.ts) referencing backend having no methods.",
+      "reason": "Not requested; also REQ-8 explicitly scopes change to static UI only and says to keep backend as-is unless required.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/hooks/useQueries.ts)"
+      ]
+    },
+    {
+      "description": "Updated project_state.json feature tracking/summary content.",
+      "reason": "Not requested by REQ-8 (spec is about adding an email contact link).",
+      "evidence": [
+        "project_state.json (truncated)"
+      ]
+    }
+  ],
+  "confidence": 0.64,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/App.tsx",
+    "project_state.json"
+  ]
+}
